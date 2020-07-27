@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="jqueryui/jquery-ui.css">
+        <link rel="stylsheet" href="jqueryui/jquery-ui.structure.css">
+        <link rel="stylsheet" href="jqueryui/jquery-ui.theme.css">
+        
+        <title>Roll the dice</title>
+    </head>
+
+    <body>
+        <div class="container">
+        <div class="wrapper clearfix">
+
+            <div class="player-0-panel active">
+                <div class="player-name" id="name-0">Player 1</div>
+                <div class="player-score" id="score-0">43</div>
+                <div class="player-current-box">
+                    <div class="player-current-label"><b>Current</b></div>
+                    <div class="player-current-score" id="current-0">11</div>
+                </div>
+            </div>
+            
+            <div class="player-1-panel">
+                <div class="player-name" id="name-1">Player 2</div>
+                <div class="player-score" id="score-1">72</div>
+                <div class="player-current-box">
+                    <div class="player-current-label"><b>Current</b></div>
+                    <div class="player-current-score" id="current-1">0</div>
+                </div>
+            </div>
+            
+            <button class="btn-new" onClick="window.location.reload();"><i class="ion-ios-plus-outline"></i>New game</button>
+            <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+            <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
+            <button class="btn-yo" id="btn1"><span class="iconify" data-icon="clarity:alert-line" data-inline="false"></span>  Game Rules</button>
+            <img src="dice-5.png" alt="Dice" class="dice">
+        </div>
+        
+         <div id="messagebox" title="messagebox" class="mydivs">
+   
+            <p><ul>
+                <li>Score 100 or more to win the game.</li><br>
+                <li>The player may continue rolling and accumulating points (but risk rolling a 1) or end his turn.</li><br>
+                <li>If the player rolls a 1 his turn is over, he loses all points he accumulated that turn, and he passes the die to the next player.</li>
+                
+            </ul></p>
+            
+        </div>
+    </div>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="script.js"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="jqueryui/jquery-ui.js" type="text/javascript"></script>
+    <script>
+document.querySelector('#messagebox').style.display = 'none';
+$("#btn1").click(function(){
+  $("#messagebox").dialog({
+  title:"Game Rules",
+  draggable:false,
+  resizeable:false,
+  height:300,
+  width:500,
+  modal:true, //background is not reachable.
+  buttons:[{
+      text:"close",
+      icon:"ui-icon-circle-close",
+      click: function() {
+          $(this).dialog("close");
+      }
+   }]
+
+  });
+});
+     
+     </script>
+</body>
+</html>
